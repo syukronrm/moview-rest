@@ -26,16 +26,16 @@ class MoviesTableSeeder extends Seeder
 		$review = App\Reviews::find(1);
 		$movie->reviews()->attach($review->id);
 
-		// $movie = new Movies();
-		// $movie->id = 2;
-		// $movie->name = "Leap!";
-		// $movie->img = "client/assets/mov2.jpg";
-		// $movie->year =  2016;
-		// $movie->desc = "Gak asik";
-		// $movie->save();		
+		$movie = new Movies();
+		$movie->id = 2;
+		$movie->name = "Leap!";
+		$movie->img = "client/assets/mov2.jpg";
+		$movie->year =  2016;
+		$movie->desc = "Gak asik";
+		$movie->save();
 		
-	 //    $movie->stars()->attach(array(1, 2));
-	 //    $movie->genres()->attach(array(1, 2, 3, 4));
-	 //    $movie->reviews()->attach(array(2, 3));
+	    $movie->stars()->attach(array(1, 2));
+	    $movie->genres()->attach(array(1, 2, 3, 4));
+	    $movie->reviews()->attach(array(2, 3));
 	}
 }
