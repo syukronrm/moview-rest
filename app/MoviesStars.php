@@ -6,5 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class MoviesStars extends Model
 {
-    //
+    public $timestamps = false;
+    
 }
