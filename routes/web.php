@@ -21,3 +21,8 @@ Route::resource('movies', 'MoviesController');
 Route::get('movies/{id}/reviews', 'MoviesController@showReviews');
 Route::post('movies/{id}/reviews', 'MoviesController@storeReview');
 Route::post('movies/search', 'MoviesController@search');
+Route::get('movies/genres/{genre}', 'MoviesController@showMoviesByGenre');
+
+Route::resource('genres', 'GenresController');
+Route::resource('stars', 'StarsController');
+Route::resource('directors', 'DirectorsController');

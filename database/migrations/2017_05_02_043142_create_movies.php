@@ -18,7 +18,11 @@ class CreateMovies extends Migration
             $table->string('name');
             $table->integer('year');
             $table->string('img');
-            $table->string('desc');
+            $table->string('desc', 2000);
+            $table->string('mood');
+            $table->dateTime('timestamp');
+            $table->string('trailer');
+            $table->string('category');
         });
     }
 

@@ -6,6 +6,7 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
+        "barryvdh/laravel-cors": "^0.9.2",
         "devdojo/chatter": "0.1.*",
         "doctrine/dbal": "^2.5",
         "ellipsesynergie/api-response": "^0.12.3",

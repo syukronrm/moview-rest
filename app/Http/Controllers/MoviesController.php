@@ -7,6 +7,7 @@ use App\Movies;
 use App\Genres;
 use App\Reviews;
 use App\Stars;
+use App\GenresMovies;
 
 class MoviesController extends Controller
 {
@@ -21,7 +22,13 @@ class MoviesController extends Controller
         foreach ($movies as $movie) {
             $movie->stars = $movie->stars;
             $movie->genres = $movie->genres;
-            $movie->reviews = $movie->reviews;
+            $reviews = $movie->reviews;
+            foreach ($reviews as $review) {
+                $review->user = $review->user;
+            }
+            $movie->reviews = $reviews;
+            $movie->director = $movie->director;
+
         }
         return response()->json($movies);
     }
@@ -120,6 +127,9 @@ class MoviesController extends Controller
         $review = new Reviews();
         $review->rating = $request->rating;
         $review->comment = $request->comment;
+        $review->id_user = $request->iduser;   // STATIC
+        $review->namauser = $request->namauser;
+        $review->timestamp = new \DateTime();
         $review->save();
 
         $movie->reviews()->attach($review->id);
@@ -136,4 +146,20 @@ class MoviesController extends Controller
     {
         //
     }
+
+    public function showMoviesByGenre($genre) {
+        $movies = Movies::distinct()
+                    ->join('genres_movies', 'movies.id', '=', 'genres_movies.movies_id')
+                    ->join('genres', 'genres.id', '=', 'genres_movies.genres_id')
+                    ->select('movies.*')
+                    ->where('genres.name', $genre)
+                    ->get();
+
+        foreach ($movies as $movie) {
+            $movie->stars = $movie->stars;
+            $movie->genres = $movie->genres;
+            $movie->reviews = $movie->reviews;
+        }
+
+        return response()->json($movies);    }
 }

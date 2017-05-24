@@ -11,4 +11,8 @@ class Reviews extends Model
     public function movies() {
     	return $this->belongsToMany('App\Movies');
     }
+
+    public function user() {
+    	return $this->belongsTo('App\User', 'id_user', 'id');
+    }
 }

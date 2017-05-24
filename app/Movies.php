@@ -18,4 +18,8 @@ class Movies extends Model
     public function stars() {
     	return $this->belongsToMany('App\Stars', 'movies_stars', 'movies_id', 'stars_id');
     }
+
+    public function director() {
+        return $this->belongsTo('App\Directors', 'id_director', 'id');
+    }
 }

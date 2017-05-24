@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ChangeReviewsComment extends Migration
+class AddDirector extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class ChangeReviewsComment extends Migration
      */
     public function up()
     {
-        Schema::table('reviews', function (Blueprint $table) {
-            $table->string('comment', 1000)->change();
-            $table->string('namauser');
+        Schema::table('movies', function (Blueprint $table) {
+            $table->integer('id_director')->unsigned();
+            $table->foreign('id_director')->references('id')->on('directors')->onDelete('cascade');
         });
     }
 
@@ -26,8 +26,8 @@ class ChangeReviewsComment extends Migration
      */
     public function down()
     {
-        Schema::table('reviews', function (Blueprint $table) {
-            $table->string('comment')->change();
+        Schema::table('movies', function (Blueprint $table) {
+            $table->dropColumn('id_director');
         });
     }
 }

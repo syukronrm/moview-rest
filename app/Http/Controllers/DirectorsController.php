@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Genres;
+use App\Directors;
 
-class GenresController extends Controller
+class DirectorsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class GenresController extends Controller
      */
     public function index()
     {
-        $genres = Genres::all();
-        return response()->json($genres);
+        $directors = Directors::all();
+        return response()->json($directors);
     }
 
     /**

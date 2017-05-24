@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Stars;
 
 class StarsController extends Controller
 {
@@ -13,7 +14,8 @@ class StarsController extends Controller
      */
     public function index()
     {
-        //
+        $stars = Stars::all();
+        return response()->json($stars);
     }
 
     /**
