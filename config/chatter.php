@@ -51,8 +51,8 @@ return [
     |
     */
 
-    'headline'    => 'Welcome to Chatter',
-    'description' => 'A simple forum package for your Laravel app.',
+    'headline'    => 'MOVIEW',
+    'description' => 'Movie Review.',
 
     /*
     |--------------------------------------------------------------------------
@@ -170,7 +170,7 @@ return [
     */
 
     'security' => [
-        'limit_time_between_posts' => true, //
+        'limit_time_between_posts' => false, //
         'time_between_posts'       => 1, // In minutes
     ],
 
